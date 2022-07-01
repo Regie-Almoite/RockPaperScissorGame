@@ -97,53 +97,60 @@
                     "./images/" + botPick + ".png"
                 );
 
-                let historyText = "";
-                let WinText =
-                    "<li class='win'>Player: " +
-                    playerPick.toUpperCase() +
-                    " vs Bot: " +
-                    botPick.toUpperCase() +
-                    "</li>";
-                let loseText =
-                    "<li class='lose'>Player: " +
-                    playerPick.toUpperCase() +
-                    " vs Bot: " +
-                    botPick.toUpperCase() +
-                    "</li>";
+                let list = document.createElement("li");
 
                 if (playerPick == botPick) {
                     winner.innerHTML = "Bot picks " + botPick + ", Tie!";
-                    historyText =
-                        "<li class='tie'>Player: " +
+                    list.classList = "tie";
+                    list.innerHTML =
+                        "Player: " +
                         playerPick.toUpperCase() +
                         " vs Bot: " +
-                        botPick.toUpperCase() +
-                        "</li>";
+                        botPick.toUpperCase();
                 } else if (playerPick == "rock" && botPick == "scissor") {
                     winner.innerHTML =
                         "Bot picks " + botPick + ", Player wins!";
                     playerWins++;
-                    historyText = WinText;
+                    list.classList = "win";
+                    list.innerHTML =
+                        "Player: " +
+                        playerPick.toUpperCase() +
+                        " vs Bot: " +
+                        botPick.toUpperCase();
                 } else if (playerPick == "paper" && botPick == "rock") {
                     winner.innerHTML =
                         "Bot picks " + botPick + ", Player wins!";
                     playerWins++;
-                    historyText = WinText;
+                    list.classList = "win";
+                    list.innerHTML =
+                        "Player: " +
+                        playerPick.toUpperCase() +
+                        " vs Bot: " +
+                        botPick.toUpperCase();
                 } else if (playerPick == "scissor" && botPick == "paper") {
                     winner.innerHTML =
                         "Bot picks " + botPick + ", Player wins!";
                     playerWins++;
-                    historyText = WinText;
+                    list.classList = "win";
+                    list.innerHTML =
+                        "Player: " +
+                        playerPick.toUpperCase() +
+                        " vs Bot: " +
+                        botPick.toUpperCase();
                 } else {
                     winner.innerHTML = "Bot picks " + botPick + ", Bot wins!";
                     botWins++;
-                    historyText = loseText;
+                    list.classList = "lose";
+                    list.innerHTML =
+                        "Player: " +
+                        playerPick.toUpperCase() +
+                        " vs Bot: " +
+                        botPick.toUpperCase();
                 }
 
-                let list = document.createElement("li");
-                list.innerHTML = historyText;
                 let historyDisplay = document.getElementById("history");
                 historyDisplay.appendChild(list);
+
                 chooseChampion();
 
                 gameTurn.innerHTML = "PlayerTurn";

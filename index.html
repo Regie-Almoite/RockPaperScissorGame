@@ -17,23 +17,31 @@
             <h3>Bot Score: <span id="botScore">0</span></h3>
         </div>
         <div class="gameContainer">
-            <h1 id="winnerDisplay"></h1>
-            <div id="picks">
-                <div>
-                    <h2>Player</h2>
-                    <img src="" id="playerPickImage" />
+            <div id="display">
+                <h1 id="winnerDisplay"></h1>
+                <div id="picks">
+                    <div>
+                        <h2>Player</h2>
+                        <img src="" id="playerPickImage" />
+                    </div>
+                    <h3>VS</h3>
+                    <div>
+                        <h2>Bot</h2>
+                        <img src="" id="botPickImage" />
+                    </div>
                 </div>
-                <h3>VS</h3>
-                <div>
-                    <h2>Bot</h2>
-                    <img src="" id="botPickImage" />
+
+                <h2 id="turn">Player Turn</h2>
+                <div id="buttons">
+                    <button id="rock">Rock</button>
+                    <button id="paper">Paper</button>
+                    <button id="scissor">Scissor</button>
                 </div>
             </div>
-
-            <h2 id="turn">Player Turn</h2>
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissor">Scissor</button>
+            <div id="matchHistory">
+                <h2>Match History</h2>
+                <ul id="history"></ul>
+            </div>
         </div>
         <script>
             let playerWins = 0;
@@ -89,25 +97,53 @@
                     "./images/" + botPick + ".png"
                 );
 
+                let historyText = "";
+                let WinText =
+                    "<li class='win'>Player: " +
+                    playerPick.toUpperCase() +
+                    " vs Bot: " +
+                    botPick.toUpperCase() +
+                    "</li>";
+                let loseText =
+                    "<li class='lose'>Player: " +
+                    playerPick.toUpperCase() +
+                    " vs Bot: " +
+                    botPick.toUpperCase() +
+                    "</li>";
+
                 if (playerPick == botPick) {
                     winner.innerHTML = "Bot picks " + botPick + ", Tie!";
+                    historyText =
+                        "<li class='tie'>Player: " +
+                        playerPick.toUpperCase() +
+                        " vs Bot: " +
+                        botPick.toUpperCase() +
+                        "</li>";
                 } else if (playerPick == "rock" && botPick == "scissor") {
                     winner.innerHTML =
                         "Bot picks " + botPick + ", Player wins!";
                     playerWins++;
+                    historyText = WinText;
                 } else if (playerPick == "paper" && botPick == "rock") {
                     winner.innerHTML =
                         "Bot picks " + botPick + ", Player wins!";
                     playerWins++;
+                    historyText = WinText;
                 } else if (playerPick == "scissor" && botPick == "paper") {
                     winner.innerHTML =
                         "Bot picks " + botPick + ", Player wins!";
                     playerWins++;
+                    historyText = WinText;
                 } else {
                     winner.innerHTML = "Bot picks " + botPick + ", Bot wins!";
                     botWins++;
+                    historyText = loseText;
                 }
 
+                let list = document.createElement("li");
+                list.innerHTML = historyText;
+                let historyDisplay = document.getElementById("history");
+                historyDisplay.appendChild(list);
                 chooseChampion();
 
                 gameTurn.innerHTML = "PlayerTurn";

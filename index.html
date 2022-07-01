@@ -161,8 +161,8 @@
                 let bScore = document.getElementById("botScore");
 
                 if (playerWins !== 5 && botWins !== 5) {
-                    pScore.innerHTML = playerWins;
-                    bScore.innerHTML = botWins;
+                    pScore.innerHTML = playerWins; // player score
+                    bScore.innerHTML = botWins; //bot score
                 } else {
                     let winner = document.getElementById("winnerDisplay");
                     let playerButtons = document.querySelectorAll("button");

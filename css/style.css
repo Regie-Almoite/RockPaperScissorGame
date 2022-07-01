@@ -3,16 +3,31 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+h2 {
+    color: grey;
+}
+
 .gameContainer {
     position: absolute;
+    min-height: 40rem;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+    display: flex;
 }
+
+#display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #winnerDisplay {
     margin-bottom: 2rem;
 }
+
 #picks {
     display: none;
     justify-content: center;
@@ -25,6 +40,10 @@
 
 #picks div {
     min-width: 30rem;
+}
+
+#buttons {
+    flex-direction: row;
 }
 
 button {
@@ -118,4 +137,33 @@ button {
 
 #turn {
     margin-bottom: 1rem;
+}
+
+#matchHistory {
+    min-width: 20rem;
+}
+
+#matchHistory h2 {
+    text-align: center;
+    color: black;
+}
+
+#history {
+    list-style: none;
+}
+
+#history li {
+    margin: 0.5rem 0;
+}
+
+#history .win {
+    color: green;
+}
+
+#history .lose {
+    color: red;
+}
+
+#history .tie {
+    color: black;
 }

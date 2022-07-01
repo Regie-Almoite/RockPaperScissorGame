@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./css/style.css" />
+    </head>
+    <body>
+        <!-- //three buttons (rock, paper, scissor) //promt stating what tht bot
+        picked and if you win/lose //You may add images, styles and other
+        features (scoreboard, match histoyr etc.) to make the game more
+        exciting! -->
+        <div class="scores">
+            <h3>Player Score: <span id="playerScore">0</span></h3>
+            <h3>Bot Score: <span id="botScore">0</span></h3>
+        </div>
+        <div class="gameContainer">
+            <h1 id="winnerDisplay"></h1>
+            <div id="picks">
+                <div>
+                    <h2>Player</h2>
+                    <img src="" id="playerPickImage" />
+                </div>
+                <h3>VS</h3>
+                <div>
+                    <h2>Bot</h2>
+                    <img src="" id="botPickImage" />
+                </div>
+            </div>
+
+            <h2 id="turn">Player Turn</h2>
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissor">Scissor</button>
+        </div>
+        <script>
+            let playerWins = 0;
+            let botWins = 0;
+            let playerButtons = document.querySelectorAll("button");
+
+            playerButtons.forEach((button) => {
+                button.addEventListener("click", function () {
+                    let gameTurn = document.getElementById("turn");
+                    gameTurn.innerHTML = "Bot Turn";
+                    let playerPick = this.getAttribute("id");
+                    let playerPickImg =
+                        document.getElementById("playerPickImage");
+                    playerPickImg.setAttribute(
+                        "src",
+                        "./images/" + playerPick + ".png"
+                    );
+                    let picksDisplay = document.getElementById("picks");
+                    picksDisplay.style.display = "flex";
+
+                    //Display random images of rock paper scissor every 100ms
+                    let myInterval = setInterval(function () {
+                        let rpsImages = [
+                            "./images/rock.png",
+                            "./images/paper.png",
+                            "./images/scissor.png",
+                        ];
+                        let randImage =
+                            rpsImages[Math.floor(Math.random() * 3)];
+                        let rockPaperScissor =
+                            document.getElementById("botPickImage");
+
+                        rockPaperScissor.setAttribute("src", randImage);
+                    }, 50);
+
+                    //clear interval and call botTurn function after 3sec
+                    setTimeout(function () {
+                        clearInterval(myInterval); // clear interval
+                        botTurn(playerPick); //bot turn
+                    }, 3000);
+                });
+            });
+
+            function botTurn(pick) {
+                let gameTurn = document.getElementById("turn");
+                let winner = document.getElementById("winnerDisplay");
+                let playerPick = pick;
+                let botChoices = ["rock", "paper", "scissor"];
+                let botPick = botChoices[Math.floor(Math.random() * 3)];
+                let rockPaperScissor = document.getElementById("botPickImage");
+                rockPaperScissor.setAttribute(
+                    "src",
+                    "./images/" + botPick + ".png"
+                );
+
+                if (playerPick == botPick) {
+                    winner.innerHTML = "Bot picks " + botPick + ", Tie!";
+                } else if (playerPick == "rock" && botPick == "scissor") {
+                    winner.innerHTML =
+                        "Bot picks " + botPick + ", Player wins!";
+                    playerWins++;
+                } else if (playerPick == "paper" && botPick == "rock") {
+                    winner.innerHTML =
+                        "Bot picks " + botPick + ", Player wins!";
+                    playerWins++;
+                } else if (playerPick == "scissor" && botPick == "paper") {
+                    winner.innerHTML =
+                        "Bot picks " + botPick + ", Player wins!";
+                    playerWins++;
+                } else {
+                    winner.innerHTML = "Bot picks " + botPick + ", Bot wins!";
+                    botWins++;
+                }
+
+                chooseChampion();
+
+                gameTurn.innerHTML = "PlayerTurn";
+            }
+
+            function chooseChampion() {
+                let pScore = document.getElementById("playerScore");
+                let bScore = document.getElementById("botScore");
+
+                if (playerWins !== 5 && botWins !== 5) {
+                    pScore.innerHTML = playerWins;
+                    bScore.innerHTML = botWins;
+                } else {
+                    let winner = document.getElementById("winnerDisplay");
+                    let playerButtons = document.querySelectorAll("button");
+                    if (playerWins > botWins) {
+                        winner.innerHTML = "Champion:  Player";
+                    } else {
+                        winner.innerHTML = "Champion:  Bot";
+                    }
+
+                    playerWins = 0;
+                    botWins = 0;
+                    pScore.innerHTML = playerWins;
+                    bScore.innerHTML = botWins;
+
+                    playerButtons.forEach((button) => {
+                        button.disabled = true;
+                    });
+                }
+            }
+        </script>
+    </body>
+</html>

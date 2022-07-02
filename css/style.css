@@ -176,7 +176,7 @@ h3 {
     font-weight: bold;
     letter-spacing: 0.1rem;
     padding: 0.5rem 0;
-    width: 6rem;
+    min-width: 7rem;
     border: none;
     border-radius: 0.5rem;
     margin: 0.25rem;
@@ -195,6 +195,12 @@ h3 {
     color: var(--white-clr);
 }
 
+#rock i {
+    color: var(--white-clr);
+    transform: rotate(90deg);
+    margin-right: 0.5rem;
+}
+
 #rock:hover {
     background-image: var(--rock-hover);
 }
@@ -204,6 +210,12 @@ h3 {
     color: var(--blk-clr);
 }
 
+#paper i {
+    color: var(--black-clr);
+    transform: rotate(90deg);
+    margin-right: 0.5rem;
+}
+
 #paper:hover {
     background-image: var(--paper-hover);
 }
@@ -211,6 +223,12 @@ h3 {
 #scissor {
     background-image: var(--scissor-clr);
     color: var(--white-clr);
+}
+
+#scissor i {
+    color: var(--white-clr);
+    transform: rotate(10deg) rotateY(180deg);
+    margin-right: 0.5rem;
 }
 
 #scissor:hover {

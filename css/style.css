@@ -70,6 +70,15 @@
         #e30000
     );
 
+    --brown-bg: linear-gradient(
+        to right top,
+        #a14f10,
+        #a15922,
+        #a16232,
+        #a06b41,
+        #9f7351
+    );
+
     --blk-clr: #180a0a;
     --grey-clr: #413f42;
     --white-clr: #f0ebe3;
@@ -102,7 +111,7 @@ h3 {
 
 .title {
     font-family: var(--title-text);
-    background-color: var(--brown-clr);
+    background-image: var(--brown-bg);
     text-align: center;
     padding: 0.5rem 0;
     min-height: 7vh;
@@ -150,6 +159,7 @@ h3 {
 #picks img {
     height: 10rem;
     width: 10rem;
+    position: relative;
 }
 
 .buttons {

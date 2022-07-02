@@ -158,7 +158,7 @@ h3 {
 
 #picks img {
     height: 10rem;
-    width: 10rem;
+    width: 100%;
     position: relative;
 }
 

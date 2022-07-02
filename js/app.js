@@ -6,7 +6,7 @@ let playerPick = "";
 let botPick = "";
 let botChoices = ["rock", "paper", "scissor"];
 let buttons = document.querySelectorAll(".pickButtons button");
-let turnDisplay = document.getElementById("turn");
+let endText = document.getElementById("endGameText");
 let picksDisplay = document.getElementById("picks");
 let winDisplay = document.getElementById("winnerDisplay");
 let pickImgLeft = document.getElementById("playerPickImage");
@@ -18,8 +18,10 @@ let resetBtn = document.getElementById("reset");
 
 buttons.forEach((button) => {
     button.addEventListener("click", function () {
-        turnText = "Bot Turn";
-        turnDisplay.innerHTML = turnText;
+        buttons.forEach((button) => {
+            button.setAttribute("disabled", "true");
+        });
+
         playerPick = this.getAttribute("id");
         picksDisplay.style.display = "flex";
         setAnim();
@@ -77,11 +79,14 @@ function determineRoundWinner() {
             botScore++;
         }
 
-        turnDisplay.innerHTML = "Player Turn";
         playerScoreDisplay.innerHTML = playerScore;
         botScoreDisplay.innerHTML = botScore;
 
         matchHistoryDisplay.appendChild(list);
+
+        buttons.forEach((button) => {
+            button.removeAttribute("disabled");
+        });
 
         determineChampion();
     }, 1500);
@@ -112,14 +117,14 @@ function determineChampion() {
     if (playerScore == 5) {
         winDisplay.classList.add("win");
         winDisplay.innerHTML = "CHAMPION - PLAYER";
-        turnDisplay.innerHTML = "To Play Again Please Press the Reset Button";
+        endText.innerHTML = "To Play Again Please Press the Reset Button";
         buttons.forEach((button) => {
             button.setAttribute("disabled", "true");
         });
     } else if (botScore == 5) {
         winDisplay.classList.add("lose");
         winDisplay.innerHTML = "CHAMPION - BOT";
-        turnDisplay.innerHTML = "To Play Again Please Press the Reset Button";
+        endText.innerHTML = "To Play Again Please Press the Reset Button";
         buttons.forEach((button) => {
             button.setAttribute("disabled", "true");
         });
@@ -135,7 +140,7 @@ resetBtn.addEventListener("click", function () {
     playerScoreDisplay.innerHTML = playerScore;
     botScoreDisplay.innerHTML = botScore;
     picksDisplay.style.display = "none";
-    turnDisplay.innerHTML = "Player Turn";
+    endText.innerHTML = "";
     buttons.forEach((button) => {
         button.removeAttribute("disabled");
     });

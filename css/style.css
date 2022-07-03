@@ -1,304 +1,328 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=Roboto:wght@400;500;700&display=swap");
 
 :root {
-    --text: "Roboto", sans-serif;
-    --title-text: "Fredericka the Great", cursive;
-    --rock-clr: linear-gradient(
-        to right top,
-        #552c01,
-        #653603,
-        #764003,
-        #884b02,
-        #995600
-    );
-    --rock-hover: linear-gradient(
-        to right top,
-        #7c4001,
-        #8a4901,
-        #975201,
-        #a55b01,
-        #b36500
-    );
-    --paper-clr: linear-gradient(
-        to right top,
-        #b1b1b1,
-        #bdbdbd,
-        #c8c8c8,
-        #d4d4d4,
-        #e0e0e0
-    );
-    --paper-hover: linear-gradient(
-        to right top,
-        #c7c7c7,
-        #d1d1d1,
-        #dbdbdb,
-        #e6e6e6,
-        #f0f0f0
-    );
-    --scissor-clr: linear-gradient(
-        to right top,
-        #3d8c00,
-        #449d00,
-        #4cae00,
-        #53bf00,
-        #5bd100
-    );
-    --scissor-hover: linear-gradient(
-        to right top,
-        #46a100,
-        #4db000,
-        #53c000,
-        #5ad000,
-        #61e000
-    );
+  --text: "Roboto", sans-serif;
+  --title-text: "Fredericka the Great", cursive;
+  --rock-clr: linear-gradient(
+    to right top,
+    #552c01,
+    #653603,
+    #764003,
+    #884b02,
+    #995600
+  );
+  --rock-hover: linear-gradient(
+    to right top,
+    #7c4001,
+    #8a4901,
+    #975201,
+    #a55b01,
+    #b36500
+  );
+  --paper-clr: linear-gradient(
+    to right top,
+    #b1b1b1,
+    #bdbdbd,
+    #c8c8c8,
+    #d4d4d4,
+    #e0e0e0
+  );
+  --paper-hover: linear-gradient(
+    to right top,
+    #c7c7c7,
+    #d1d1d1,
+    #dbdbdb,
+    #e6e6e6,
+    #f0f0f0
+  );
+  --scissor-clr: linear-gradient(
+    to right top,
+    #3d8c00,
+    #449d00,
+    #4cae00,
+    #53bf00,
+    #5bd100
+  );
+  --scissor-hover: linear-gradient(
+    to right top,
+    #46a100,
+    #4db000,
+    #53c000,
+    #5ad000,
+    #61e000
+  );
 
-    --reset-clr: linear-gradient(
-        to right top,
-        #900000,
-        #9c0001,
-        #a90001,
-        #b50001,
-        #c20000
-    );
+  --reset-clr: linear-gradient(
+    to right top,
+    #900000,
+    #9c0001,
+    #a90001,
+    #b50001,
+    #c20000
+  );
 
-    --reset-hover: linear-gradient(
-        to right top,
-        #ae0000,
-        #bb0000,
-        #c80000,
-        #d60000,
-        #e30000
-    );
+  --reset-hover: linear-gradient(
+    to right top,
+    #ae0000,
+    #bb0000,
+    #c80000,
+    #d60000,
+    #e30000
+  );
 
-    --brown-bg: linear-gradient(
-        to right top,
-        #a14f10,
-        #a15922,
-        #a16232,
-        #a06b41,
-        #9f7351
-    );
+  --brown-bg: linear-gradient(
+    to right top,
+    #a14f10,
+    #a15922,
+    #a16232,
+    #a06b41,
+    #9f7351
+  );
 
-    --blk-clr: #180a0a;
-    --grey-clr: #413f42;
-    --white-clr: #f0ebe3;
-    --brown-clr: #a27b5c;
+  --blk-clr: #180a0a;
+  --grey-clr: #413f42;
+  --white-clr: #f0ebe3;
+  --brown-clr: #a27b5c;
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: var(--text);
-    color: var(--blk-clr);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--text);
+  color: var(--blk-clr);
 }
 
 body {
-    background-color: var(--white-clr);
+  background-color: var(--white-clr);
 }
 
 .container {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: visible;
+  max-height: 100vh;
+  height: 100%;
 }
 
 h3 {
-    text-align: center;
-    color: var(--grey-clr);
-    padding: 0.5rem 0;
-    margin-bottom: 1rem;
+  text-align: center;
+  color: var(--grey-clr);
+  padding: 0.5rem 0;
+}
+
+.game {
+  padding: 1rem;
 }
 
 .title {
-    font-family: var(--title-text);
-    background-image: var(--brown-bg);
-    text-align: center;
-    padding: 0.5rem 0;
-    min-height: 7vh;
-}
-
-/* .game {
-    display: none;
-} */
-
-.game {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 83vh;
-    padding: 0.5rem;
+  text-align: center;
+  background-image: var(--brown-bg);
+  font-family: var(--title-text);
+  padding: 0.5rem;
 }
 
 .scores {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: 0.5rem 0;
-}
-
-#matchDisplay {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-around;
 }
 
 #winnerDisplay {
-    text-align: center;
-    padding: 0.5rem 0;
+  text-align: center;
+  padding: 0.5rem 0;
 }
 
 #picks {
-    display: none;
-    justify-content: space-around;
-    align-items: center;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #picks img {
-    height: 10rem;
-    width: 100%;
-    position: relative;
+  width: 100%;
+  height: 10rem;
+}
+
+#endGameText {
+  margin-bottom: 1rem;
 }
 
 .buttons {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 0.5rem 0;
-    margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .buttons button {
-    font-size: 1rem;
-    font-weight: bold;
-    letter-spacing: 0.1rem;
-    padding: 0.5rem 0;
-    min-width: 7rem;
-    border: none;
-    border-radius: 0.5rem;
-    margin: 0.25rem;
+  font-weight: bold;
+  padding: 0.5rem 0;
+  min-width: 6rem;
+  margin: 0.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  letter-spacing: 0.15rem;
 }
 
-#reset {
-    background-image: var(--reset-clr);
-    color: var(--white-clr);
+.buttons button i {
+  margin-right: 0.1rem;
 }
-#reset:hover {
-    background-image: var(--reset-hover);
-    color: var(--white-clr);
-}
+
 #rock {
-    background-image: var(--rock-clr);
-    color: var(--white-clr);
+  background-image: var(--rock-clr);
+  color: var(--white-clr);
 }
 
 #rock i {
-    color: var(--white-clr);
-    transform: rotate(90deg);
-    margin-right: 0.5rem;
+  color: var(--white-clr);
+  transform: rotate(90deg);
 }
 
 #rock:hover {
-    background-image: var(--rock-hover);
+  background-image: var(--rock-hover);
 }
 
 #paper {
-    background-image: var(--paper-clr);
-    color: var(--blk-clr);
+  background-image: var(--paper-clr);
 }
 
 #paper i {
-    color: var(--black-clr);
-    transform: rotate(90deg);
-    margin-right: 0.5rem;
+  transform: rotate(90deg);
 }
 
 #paper:hover {
-    background-image: var(--paper-hover);
+  background-image: var(--paper-hover);
 }
 
 #scissor {
-    background-image: var(--scissor-clr);
-    color: var(--white-clr);
+  background-image: var(--scissor-clr);
 }
 
 #scissor i {
-    color: var(--white-clr);
-    transform: rotate(10deg) rotateY(180deg);
-    margin-right: 0.5rem;
+  transform: rotate(180deg) rotateX(180deg);
 }
 
 #scissor:hover {
-    background-image: var(--scissor-hover);
+  background-image: var(--scissor-hover);
+}
+
+#reset {
+  background-image: var(--reset-clr);
+  color: var(--white-clr);
+}
+
+#reset:hover {
+  background-image: var(--reset-hover);
 }
 
 #matchHistory {
-    min-height: 30rem;
-    border: 1px solid var(--brown-clr);
-    border-radius: 0.5rem;
-    padding: 0.5rem;
+  border: 3px solid var(--brown-clr);
+  border-radius: 0.5rem;
 }
 
 #matchHistory h2 {
-    text-align: center;
-    padding: 0.5rem 0;
+  background-color: var(--brown-clr);
+  text-align: center;
+  padding: 0.5rem 0;
 }
 
 #history {
-    list-style: none;
+  list-style: none;
+  padding: 0.5rem;
 }
-
 #history li {
-    margin-bottom: 0.5rem;
-}
-
-.tie {
-    color: var(--grey-clr);
+  padding: 0.5rem 0;
 }
 
 .win {
-    color: #3d8c00;
+  color: green;
 }
 
 .lose {
-    color: red;
+  color: red;
 }
 
 @keyframes upDown {
-    to {
-        transform: translateY(20px);
-    }
+  to {
+    transform: translateY(20px);
+  }
 }
 
 @media only screen and (min-width: 768px) {
-    html {
-        font-size: 20px;
-    }
+  html {
+    font-size: 20px;
+  }
 
-    #picks img {
-        width: 15rem;
-    }
+  #picks img {
+    height: 15rem;
+    width: 15rem;
+  }
+
+  .buttons button {
+    min-width: 10rem;
+    font-size: 1.5rem;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
-    html {
-        font-size: 25px;
-    }
+  .container {
+    overflow: hidden;
+  }
 
-    #picks img {
-        width: 15rem;
-    }
+  #picks img {
+    width: 100%;
+    height: 12rem;
+  }
 
-    #match {
-        width: 100%;
-        display: flex;
-        justify-content: space-evenly;
-    }
+  .buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
 
-    #matchHistory {
-        width: 25%;
-    }
+  .pickButtons {
+    display: flex;
+  }
+
+  .pickButtons button {
+    width: 100%;
+  }
+
+  #match {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  #matchDisplay {
+    width: 100%;
+    margin-right: 0.25rem;
+  }
+
+  #matchHistory {
+    width: 30%;
+  }
+
+  #history {
+    max-height: 70vh;
+    overflow-y: scroll;
+  }
+  /* scrollbar */
+  /* width */
+  ::-webkit-scrollbar {
+    width: 0.25rem;
+    border-top-right-radius: 0.5rem;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--white-clr);
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--blk-clr);
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--grey-clr);
+  }
 }
